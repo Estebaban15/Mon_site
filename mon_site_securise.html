@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bienvenue sur mon site</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #2c3e50, #3498db);
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+
+    header {
+      padding: 30px 20px 10px;
+    }
+
+    header img {
+      width: 100px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #00000080;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 10px 0 0;
+    }
+
+    #password-form {
+      margin-top: 50px;
+    }
+
+    input[type="password"] {
+      padding: 12px;
+      width: 220px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #27ae60;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #219150;
+    }
+
+    #error {
+      color: #ffaaaa;
+    }
+
+    #site-content {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .zone {
+      background: white;
+      color: #333;
+      margin: 30px auto;
+      width: 80%;
+      max-width: 800px;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px #00000040;
+      animation: slideIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://via.placeholder.com/100" alt="Logo du site" />
+    <h1>Bienvenue sur mon site sécurisé</h1>
+  </header>
+
+  <div id="password-form">
+    <h2>Veuillez entrer le ou les mots de passe</h2>
+    <input type="password" id="pass1" placeholder="Mot de passe 1"><br>
+    <input type="password" id="pass2" placeholder="Mot de passe 2 (facultatif)"><br>
+    <button onclick="checkPassword()">Entrer</button>
+    <p id="error"></p>
+  </div>
+
+  <div id="site-content">
+    <div class="zone">
+      <h2>Zone 1 : Présentation</h2>
+      <p>Bienvenue sur mon site personnel. Ici, tu peux découvrir mes projets, mes passions et bien plus encore.</p>
+    </div>
+
+    <div class="zone">
+      <h2>Zone 2 : Mes Projets</h2>
+      <p>Je travaille sur des sites web, des applications mobiles et des contenus multimédias. Reste connecté !</p>
+    </div>
+
+    <div class="zone">
+      <h2>Zone 3 : Contact</h2>
+      <p>Tu peux me joindre à l’adresse suivante : <strong>monadresse@email.com</strong></p>
+    </div>
+  </div>
+
+  <script>
+    const mdp1 = "secret1";
+    const mdp2 = "secret2";
+
+    function checkPassword() {
+      const input1 = document.getElementById("pass1").value;
+      const input2 = document.getElementById("pass2").value;
+
+      if (input1 === mdp1 && (input2 === mdp2 || mdp2 === "")) {
+        document.getElementById("password-form").style.display = "none";
+        document.getElementById("site-content").style.display = "block";
+      } else {
+        document.getElementById("error").textContent = "Mot(s) de passe incorrect(s). Réessaie.";
+      }
+    }
+  </script>
+
+</body>
+</html>
